@@ -6,9 +6,11 @@ const express = require('express');
 const app = express();
 
 // Middleware
-const cors = require('cors');
 require('dotenv').config();
 const PORT = process.env.PORT || 3002;
+
+const cors = require('cors');
+app.use(cors());
 
 // read data from weather.json
 const weatherData = require('./data/weather.json');
@@ -21,8 +23,8 @@ app.get('/', (req, res) => {
 app.get('/weather', (req, res) => {
   let city = req.query.city.toLowerCase();
   try {
-    let targetCity = weatherData.filter(e => e.city_name.toLowerCase() === city);
-    let weatherForecast = targetCity[0].data.map(e => new Forecast(e));
+    let targetCity = weatherData.find(e => e.city_name.toLowerCase() === city);
+    let weatherForecast = targetCity.data.map(e => new Forecast(e));
     res.send(weatherForecast);
   } catch (error) {
     res.send(`There is no info on ${city}. Try Seattle, Paris or Amman`);
@@ -36,9 +38,11 @@ app.get('*', (req, res) => {
 class Forecast {
   constructor(city) {
     this.date = city.datetime;
+    this.low = city.low_temp;
+    this.high = city.high_temp;
     this.description = city.weather.description;
   }
 }
 
-// instruct server to start listening for requests
+// instruct server to start listening for requests/specific rout calls
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
