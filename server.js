@@ -29,7 +29,19 @@ app.get('/weather', async (req, res) => {
     let weatherForecast = rawInfo.data.data.map(e => new Forecast(e));
     res.send(weatherForecast);
   } catch (error) {
-    res.status(400).send(error.code);
+    res.send(error.response.status, error.response.data.error);
+  }
+});
+
+app.get('/movies', async (req, res) => {
+  let city = req.query.city;
+  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_KEY}&query=${city}`;
+  try {
+    let movieInfo = await axios.get(url);
+    let movieData = movieInfo.data.results.map(e => new Movie(e));
+    res.send(movieData);
+  } catch (error) {
+    res.status(500).send(error.response.status);
   }
 });
 
@@ -44,6 +56,14 @@ class Forecast {
     this.low = city.low_temp;
     this.high = city.high_temp;
     this.description = city.weather.description;
+  }
+}
+
+class Movie {
+  constructor(film) {
+    this.title = film.original_title;
+    this.date = film.release_date;
+    this.popularity = film.popularity;
   }
 }
 
