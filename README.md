@@ -14,7 +14,7 @@ Allows the front-end to make API queries to obtain weather and movie information
 - Then: npm start to run
 
 ## Architecture
-[High level whiteboard](./whiteboard.jpg) *needs update*
+[High level whiteboard](./whiteboard.jpg)
 
 Live server with separate API routes for weather forecast and movie information requests.  Returns a JSON object with requested information.
 
