@@ -6,37 +6,40 @@ API server for city-explorer project
 **Version**: 1.0.0
 
 ## Overview
-Allows the front-end to make a city query to obtain weather information for the selected city.
+Allows the front-end to make API queries to obtain weather and movie information for a city (selected in the front end).
 
 ## Getting Started
-Dependencies on package.json May use: npm build Then: npm start to run
+Dependencies on package.json (including express and axios)
+May use: npm build
+Then: npm start to run
 
 ## Architecture
-
 [High level whiteboard](./whiteboard.jpg) *needs update*
 
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+Live server with separate API routes for weather forecast and movie information requests.  Returns a JSON object with requested information.
+
+Each route's functionality resides in its own module.
+
+If the information is not in cache, it uses axios package to fetch weather info from WeatherBit and movie info from TMDB.  New information is saved in cache.  Cache information is returned is it has not expired.
+
+Deployed at:
+https://city-explo.herokuapp.com/
 
 ## Change Log
-https://github.com/lg550055/city-explorer-api/pull/3
+1/18/2022 - MVP + error handling
+1/20/2022 - Refactors wheather and movies each into its own refactored components
+1/21/2022 - Adds cache
 
 ## Credit and Collaborations
-
 Ryan Gallaway - Instructor
+Riva Davidowski - TA
 
 ---
 
-## Time Estimates
+## Front end
 
-Name of feature: 1. Weather
-Estimate of time needed to complete: 60 min
-Start time: _____
-Finish time: _____
-Actual time needed to complete: _____
+Deployment:
+https://serene-lovelace-bcce7c.netlify.app/
 
-Name of feature: 1. Errors
-Estimate of time needed to complete: 60 min
-Start time: _____
-Finish time: _____
-Actual time needed to complete: _____
-
+Repository:
+https://github.com/lg550055/city-explorer
