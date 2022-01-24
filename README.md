@@ -9,9 +9,9 @@ API server for city-explorer project
 Allows the front-end to make API queries to obtain weather and movie information for a city (selected in the front end).
 
 ## Getting Started
-Dependencies on package.json (including express and axios)
-May use: npm build
-Then: npm start to run
+- Dependencies on package.json (including express and axios)
+- May use: npm build
+- Then: npm start to run
 
 ## Architecture
 [High level whiteboard](./whiteboard.jpg) *needs update*
@@ -26,13 +26,13 @@ Deployed at:
 https://city-explo.herokuapp.com/
 
 ## Change Log
-1/18/2022 - MVP + error handling
-1/20/2022 - Refactors wheather and movies each into its own refactored components
-1/21/2022 - Adds cache
+- 1/18/2022 - MVP + error handling
+- 1/20/2022 - Refactors wheather and movies each into its own refactored components
+- 1/21/2022 - Adds cache
 
 ## Credit and Collaborations
-Ryan Gallaway - Instructor
-Riva Davidowski - TA
+- Ryan Gallaway - Instructor
+- Riva Davidowski - TA
 
 ---
 
