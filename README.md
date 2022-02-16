@@ -10,8 +10,8 @@ Allows the front-end to make API queries to obtain weather and movie information
 
 ## Getting Started
 - Dependencies on package.json (including express and axios)
-- Use: <npm install>
-- Then: <npm start> to run
+- Use: `npm install`
+- Then: `npm start` to run
 
 ## Architecture
 [High level whiteboard](./whiteboard.jpg)
