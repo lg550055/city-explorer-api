@@ -1,4 +1,5 @@
 'use strict';
+// this module fetches movie info from TMDB API
 
 const axios = require('axios');
 let cache = require('./cache');
@@ -7,6 +8,7 @@ function getMovies (req, res) {
   let city = req.query.city;
   let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_KEY}&query=${city}&include_adult=false`;
 
+  // to minimize API calls, first check if the info is in cache
   if (cache[city] && Date.now() - cache[city].timestamp < 1000*3600*30) {
     console.log('cache hit');
     res.send(cache[city].movies);

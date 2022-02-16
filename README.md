@@ -1,5 +1,5 @@
 # city-explorer-api
-API server for city-explorer project
+API server for city-explorer web app
 
 **Author**: Polo Gonzalez
 
@@ -10,8 +10,8 @@ Allows the front-end to make API queries to obtain weather and movie information
 
 ## Getting Started
 - Dependencies on package.json (including express and axios)
-- May use: npm build
-- Then: npm start to run
+- Use: <npm install>
+- Then: <npm start> to run
 
 ## Architecture
 [High level whiteboard](./whiteboard.jpg)
